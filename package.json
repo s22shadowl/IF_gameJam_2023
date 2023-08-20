@@ -1,7 +1,7 @@
 {
-  "name": "temp1",
+  "name": "if-game-jam-2023-team03",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,10 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-countdown": "^2.3.5",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.15.0",
+    "react-router-dom": "^6.15.0",
+    "react-simple-typewriter": "^5.0.1",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.197",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
