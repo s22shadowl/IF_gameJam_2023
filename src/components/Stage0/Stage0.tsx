@@ -10,7 +10,7 @@ import Stage from "./Stage"
 import { CommonS } from "../../style/styles"
 
 const Stage0 = () => {
-  const [currentPart, setCurrentPart] = useState<number>(6)
+  const [currentPart, setCurrentPart] = useState<number>(1)
 
   const CurrentComponent = useCallback(() => {
     switch (currentPart) {

@@ -65,7 +65,11 @@ const speakLines = [
   "包裹：不、不要！旁邊的這個包裹肉比較多，比較好吃！",
 ]
 
-const Stage = (props) => {
+type Props = {
+  setCurrentPart: () => void
+}
+
+const Stage = (props: Props) => {
   const [currentLine, setCurrentLine] = useState(0)
   const [battleStatus, setBattleStatus] = useState("intro")
 
@@ -83,7 +87,7 @@ const Stage = (props) => {
 
       if (battleStatus === "giveUp") {
         if (currentLine === giveUpLines.length - 1) {
-          props.setCurrentPart(7)
+          props.setCurrentPart()
         } else {
           setCurrentLine((v) => v + 1)
         }
@@ -92,7 +96,7 @@ const Stage = (props) => {
           setBattleStatus("ready")
           setCurrentLine(0)
         } else {
-          props.setCurrentPart(7)
+          props.setCurrentPart()
         }
       } else {
         setCurrentLine((v) => v + 1)
