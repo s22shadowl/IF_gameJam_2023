@@ -19,6 +19,7 @@ function App() {
           <BackGround>
             <Routes>
               <Route index element={<Home />} />
+              <Route path="/IF_gameJam_2023" element={<Home />} />
               <Route path="/stage0" element={<Stage0 />} />
               <Route path="/stage1" element={<Stage1 />} />
               <Route path="/stage2" element={<Stage2 />} />
