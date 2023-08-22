@@ -18,7 +18,7 @@ const Home = () => {
           />
         </S.Title>
         <S.Buttons>
-          <Link to="/begin">
+          <Link to="/stage0">
             <S.Button>
               <S.ButtonText>新遊戲</S.ButtonText>
             </S.Button>

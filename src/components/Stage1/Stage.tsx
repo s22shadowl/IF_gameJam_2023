@@ -1,7 +1,7 @@
 import { CommonS } from "../../style/styles"
 import PackBack from "../../assets/pack_background.jpg"
 import Pack from "../../assets/pack.png"
-import Cus1 from "../../assets/cus_1.png"
+import Cus3 from "../../assets/cus_3.png"
 import ConvInside2 from "../../assets/conv_inside2.png"
 import { styled } from "styled-components"
 import { useCallback, useMemo, useState } from "react"
@@ -13,8 +13,8 @@ const stageLines = [
   "啊找到了，就是這個",
   "不過包裹的樣子好像不太對勁......",
   "包裹：不要碰我！！我才不要跟陌生人走咧！",
-  "原來這包裹跟我一樣是社恐...",
-  "不對，應該先吐槽包裹為什麼會說話吧！？",
+  "怎麼又是你！",
+  "怎麼會，難道又是夢嗎？",
   "包裹頑強底抗，我該怎麼做呢？",
 ]
 
@@ -25,8 +25,8 @@ const giveUpLines = [
   "什麼？你要走了嗎？喂！等等啊！！！",
   "很抱歉客人，沒有找到你的包裹",
   "我面無表情地說",
-  "什麼意思！我要去投訴你！",
-  "林肯怒髮沖天，立刻展開了另一場臭罵",
+  "什麼意思！你竟敢這樣跟我講話！",
+  "秦始皇瞬間變臉，展現出了要把人五馬分屍的氣勢",
   "不過，這些都跟我無關了",
   "羞辱的言語完全沒有進到我的耳中",
   "我只是一個勁的道歉",
@@ -38,10 +38,10 @@ const giveUpLines = [
 const winLines = [
   "在我高超的技巧下，總算是擊敗(?)了包裹",
   "包裹：可惡！放開我",
-  "不顧包裹掙扎，我無情地把它交給林肯",
-  "林肯又碎念了兩句後，總算是離開了",
-  "唉，當超商店員真不容易啊......",
-  "好想回家耍廢",
+  "不顧包裹掙扎，我無情地把它交給秦始皇",
+  "秦始皇笑咪咪地離開",
+  "唉，這到底是怎麼回事啊......",
+  "這場夢到底什麼時候才能結束？",
   "......",
   "...",
 ]
@@ -154,8 +154,9 @@ const Stage = (props: Props) => {
         {(battleStatus === "ready" || battleStatus === "speak") && (
           <S.Image src={Pack} />
         )}
-        {battleStatus === "giveUp" && currentLine > 4 && <S.Image src={Cus1} />}
-        {battleStatus === "giveUp" ? (
+        {((battleStatus === "giveUp" && currentLine > 4) ||
+          battleStatus === "win") && <S.Image src={Cus3} />}
+        {battleStatus === "giveUp" || battleStatus === "win" ? (
           <CommonS.Background src={ConvInside2} />
         ) : (
           <CommonS.Background src={PackBack} />
@@ -170,18 +171,17 @@ const Stage = (props: Props) => {
               setBattleStatus("win")
               setCurrentLine(0)
             }}
-            limit={5000}
+            limit={15000}
           />
         ) : (
           <S.Dialog>
             <S.DialogText>{renderDialogText}</S.DialogText>
             {battleStatus === "ready" && (
               <S.DialogButtons>
-                {/* remove on stage 1 */}
-                {currentLine === 0 && (
+                {
                   <S.DialogButton
                     onClick={() => {
-                      if (currentLine === 0) {
+                      if (currentLine === 7) {
                         setCurrentLine(0)
                       }
                       setBattleStatus("speak")
@@ -189,7 +189,7 @@ const Stage = (props: Props) => {
                   >
                     說服
                   </S.DialogButton>
-                )}
+                }
                 <S.DialogButton onClick={() => setBattleStatus("fight")}>
                   戰鬥
                 </S.DialogButton>

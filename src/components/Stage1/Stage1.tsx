@@ -3,9 +3,9 @@ import NormalScene from "../NormalScene"
 import ConvE from "../../assets/conv_e.jpg"
 import ConvInside from "../../assets/conv_inside.jpg"
 import ConvInside2 from "../../assets/conv_inside2.png"
-import HouseA from "../../assets/house_a.jpg"
-import { Lines1, Lines3, Lines2, Lines4, Lines5, Lines6 } from "./lines"
-import Cus1 from "../../assets/cus_1.png"
+import HouseB from "../../assets/house_b.jpg"
+import { Lines1, Lines3, Lines2, Lines4, Lines5 } from "./lines"
+import Cus3 from "../../assets/cus_3.png"
 import Stage from "./Stage"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
@@ -20,7 +20,7 @@ const Stage0 = () => {
           <NormalScene
             setCurrentPart={() => setCurrentPart(2)}
             lines={Lines1}
-            backgroundImage={HouseA}
+            backgroundImage={HouseB}
           />
         )
       }
@@ -48,35 +48,26 @@ const Stage0 = () => {
             setCurrentPart={() => setCurrentPart(5)}
             lines={Lines4}
             backgroundImage={ConvInside2}
+            peopleImage={Cus3}
           />
         )
       }
       case 5: {
-        return (
-          <NormalScene
-            setCurrentPart={() => setCurrentPart(6)}
-            lines={Lines5}
-            backgroundImage={ConvInside2}
-            peopleImage={Cus1}
-          />
-        )
+        return <Stage setCurrentPart={() => setCurrentPart(6)} />
       }
       case 6: {
-        return <Stage setCurrentPart={() => setCurrentPart(7)} />
+        return (
+          <NormalScene
+            setCurrentPart={() => setCurrentPart(7)}
+            lines={Lines5}
+            backgroundImage={HouseB}
+          />
+        )
       }
       case 7: {
         return (
-          <NormalScene
-            setCurrentPart={() => setCurrentPart(8)}
-            lines={Lines6}
-            backgroundImage={HouseA}
-          />
-        )
-      }
-      case 8: {
-        return (
           <S.Box>
-            <Link to="/stage1">
+            <Link to="/stage2">
               <S.Title>{"Next Stage →"}</S.Title>
             </Link>
           </S.Box>
